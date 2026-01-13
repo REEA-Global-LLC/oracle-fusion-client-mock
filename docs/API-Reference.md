@@ -485,26 +485,100 @@ async def get_pending_acknowledgments() -> OracleCollectionResponse[POAcknowledg
 
 Compatible with `client-valence-anomaly-detection/src/oracle/`
 
-### Compatibility Aliases
+### Exact Compatibility Mapping with `client-valence-anomaly-detection`
 
-For drop-in replacement with anomaly-detection, use the **same class names**:
+This section provides an **exact mapping** of every method, class, and exception from
+[client-valence-anomaly-detection/src/oracle/](https://github.com/REEA-Global-LLC/client-valence-anomaly-detection/tree/main/src/oracle)
+to the corresponding implementation in this mock client.
+
+#### OracleFusionClient Methods (client.py)
+
+| anomaly-detection Method | Signature | Mock Implementation | Status |
+|--------------------------|-----------|---------------------|--------|
+| `__init__` | `(base_url, username, password, timeout)` | `SalesOrderMockClient(...)` | ✅ Compatible (params ignored) |
+| `__aenter__` | `() -> OracleFusionClient` | `SalesOrderMockClient.__aenter__()` | ✅ Identical |
+| `__aexit__` | `(exc_type, exc_val, exc_tb)` | `SalesOrderMockClient.__aexit__(...)` | ✅ Identical |
+| `close` | `() -> None` | `SalesOrderMockClient.close()` | ✅ Identical (no-op) |
+| `get` | `(resource, params) -> dict` | `SalesOrderMockClient.get(...)` | ✅ Identical |
+| `get_by_id` | `(resource, resource_id, expand) -> dict` | `SalesOrderMockClient.get_by_id(...)` | ✅ Identical |
+| `post` | `(resource, data) -> dict` | `SalesOrderMockClient.post(...)` | ✅ Identical (returns success) |
+| `patch` | `(resource, resource_id, data) -> dict` | `SalesOrderMockClient.patch(...)` | ✅ Identical |
+| `delete` | `(resource, resource_id) -> dict` | `SalesOrderMockClient.delete(...)` | ✅ Identical (returns success) |
+| `get_orders` | `(params) -> dict` | `SalesOrderMockClient.get_orders(...)` | ✅ Identical |
+| `get_order` | `(order_id, include_lines) -> dict` | `SalesOrderMockClient.get_order(...)` | ✅ Identical |
+| `update_order` | `(order_id, updates) -> dict` | `SalesOrderMockClient.update_order(...)` | ✅ Identical (no-op) |
+| `get_customers` | `(params) -> dict` | `SalesOrderMockClient.get_customers(...)` | ✅ Identical |
+| `get_customer` | `(customer_id) -> dict` | `SalesOrderMockClient.get_customer(...)` | ✅ Identical |
+| `get_products` | `(params) -> dict` | `SalesOrderMockClient.get_products(...)` | ✅ Identical |
+| `get_product` | `(product_id) -> dict` | `SalesOrderMockClient.get_product(...)` | ✅ Identical |
+| `health_check` | `() -> bool` | `SalesOrderMockClient.health_check()` | ✅ Identical (always True) |
+
+#### OracleOperations Methods (operations.py)
+
+| anomaly-detection Method | Signature | Mock Implementation | Status |
+|--------------------------|-----------|---------------------|--------|
+| `__init__` | `(client: OracleFusionClient \| None)` | `SalesOrderMockOperations(...)` | ✅ Identical |
+| `__aenter__` | `() -> OracleOperations` | `SalesOrderMockOperations.__aenter__()` | ✅ Identical |
+| `__aexit__` | `(exc_type, exc_val, exc_tb)` | `SalesOrderMockOperations.__aexit__(...)` | ✅ Identical |
+| `_parse_order` | `(data: dict) -> Order` | `SalesOrderMockOperations._parse_order(...)` | ✅ Identical |
+| `get_order` | `(order_id: str) -> Order` | `SalesOrderMockOperations.get_order(...)` | ✅ Identical |
+| `get_order_by_number` | `(order_number: str) -> Order \| None` | `SalesOrderMockOperations.get_order_by_number(...)` | ✅ Identical |
+| `search_orders` | `(criteria: OrderSearchCriteria) -> list[Order]` | `SalesOrderMockOperations.search_orders(...)` | ✅ Identical |
+| `get_recent_orders` | `(days: int, limit: int) -> list[Order]` | `SalesOrderMockOperations.get_recent_orders(...)` | ✅ Identical |
+| `update_order` | `(order_id: str, update: OrderUpdate) -> Order` | `SalesOrderMockOperations.update_order(...)` | ✅ Identical (no-op) |
+| `update_order_field` | `(order_id, field, value, reason) -> Order` | `SalesOrderMockOperations.update_order_field(...)` | ✅ Identical (no-op) |
+| `update_order_line_quantity` | `(order_id, line_id, new_quantity, reason) -> Order` | `SalesOrderMockOperations.update_order_line_quantity(...)` | ✅ Identical (no-op) |
+| `get_customer_order_history` | `(customer_id: str, months: int) -> CustomerOrderHistory` | `SalesOrderMockOperations.get_customer_order_history(...)` | ✅ Identical |
+| `get_product_order_history` | `(product_id: str, months: int) -> ProductOrderHistory` | `SalesOrderMockOperations.get_product_order_history(...)` | ✅ Identical |
+| `get_customer` | `(customer_id: str) -> Customer` | `SalesOrderMockOperations.get_customer(...)` | ✅ Identical |
+| `get_product` | `(product_id: str) -> Product` | `SalesOrderMockOperations.get_product(...)` | ✅ Identical |
+
+#### Exceptions (client.py)
+
+| anomaly-detection Exception | Mock Alias | Mock Class |
+|-----------------------------|------------|------------|
+| `OracleFusionError` | `OracleFusionError` | `SalesOrderMockError` |
+| `OracleFusionAuthError` | `OracleFusionAuthError` | `SalesOrderMockAuthError` |
+| `OracleFusionNotFoundError` | `OracleFusionNotFoundError` | `SalesOrderMockNotFoundError` |
+
+#### Models (models.py)
+
+| anomaly-detection Model | Mock Model | Field Aliases |
+|-------------------------|------------|---------------|
+| `OrderStatus` | `OrderStatus` | Same enum values |
+| `Order` | `Order` | `HeaderId`, `OrderNumber`, `StatusCode`, `CustomerId`, `TotalAmount`, etc. |
+| `OrderLine` | `OrderLine` | `OrderLineId`, `LineNumber`, `InventoryItemId`, `OrderedQuantity`, etc. |
+| `OrderSearchCriteria` | `OrderSearchCriteria` | Same fields |
+| `OrderUpdate` | `OrderUpdate` | Same fields |
+| `Customer` | `Customer` | `CustomerId`, `CustomerName`, `CustomerNumber` |
+| `Product` | `Product` | `InventoryItemId`, `ProductNumber`, `ProductDescription` |
+| `CustomerOrderHistory` | `CustomerOrderHistory` | Same fields (used for anomaly detection) |
+| `ProductOrderHistory` | `ProductOrderHistory` | Same fields (used for anomaly detection) |
+
+#### Import Compatibility
 
 ```python
-# Use the same names as the real Oracle client
+# anomaly-detection imports:
+from src.oracle.client import OracleFusionClient, OracleFusionError, OracleFusionNotFoundError
+from src.oracle.operations import OracleOperations
+from src.oracle.models import Order, OrderLine, Customer, Product, CustomerOrderHistory, ProductOrderHistory
+
+# Equivalent mock imports:
 from oracle_fusion_mock.sales_orders import (
-    OracleFusionClient,       # Alias for SalesOrderMockClient
-    OracleOperations,         # Alias for SalesOrderMockOperations
-    OracleFusionError,        # Alias for SalesOrderMockError
-    OracleFusionNotFoundError,# Alias for SalesOrderMockNotFoundError
+    OracleFusionClient,        # Alias → SalesOrderMockClient
+    OracleFusionError,         # Alias → SalesOrderMockError
+    OracleFusionNotFoundError, # Alias → SalesOrderMockNotFoundError
+    OracleOperations,          # Alias → SalesOrderMockOperations
+    Order,
+    OrderLine,
+    Customer,
+    Product,
+    CustomerOrderHistory,
+    ProductOrderHistory,
 )
-
-# Your production code works unchanged!
-async with OracleFusionClient() as client:
-    orders = await client.get_orders()
-
-async with OracleOperations() as ops:
-    history = await ops.get_customer_order_history("CUST-1001")
 ```
+
+---
 
 ### SalesOrderMockClient (alias: OracleFusionClient)
 
