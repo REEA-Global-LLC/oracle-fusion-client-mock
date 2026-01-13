@@ -235,8 +235,21 @@ class SalesOrderMockClient:
         resource_id: str,
         data: dict[str, Any],
     ) -> dict[str, Any]:
-        """Make PATCH request (mock - returns updated resource)."""
-        # Return the existing resource (mock doesn't actually update)
+        """Make PATCH request (mock - returns updated resource).
+
+        Handles two calling conventions:
+        1. patch("salesOrdersForOrderHub", "12345", {...})
+        2. patch("", "salesOrdersForOrderHub/12345/child/lines/67890", {...})
+        """
+        # Handle case where full path is in resource_id
+        if not resource and "/" in resource_id:
+            # Parse path like "salesOrdersForOrderHub/12345/child/lines/67890"
+            parts = resource_id.split("/")
+            if parts[0] == "salesOrdersForOrderHub":
+                order_id = parts[1]
+                return await self.get_order(order_id)
+
+        # Standard case
         return await self.get_by_id(resource, resource_id)
 
     async def delete(

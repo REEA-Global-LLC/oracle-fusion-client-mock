@@ -3,28 +3,37 @@
 This module provides mock implementations that are compatible with the Oracle
 client interface expected by the anomaly detection system.
 
-Usage:
+Usage with original names:
     >>> from oracle_fusion_mock.sales_orders import (
     ...     SalesOrderMockClient,
     ...     SalesOrderMockOperations,
+    ... )
+
+Usage as drop-in replacement (same names as anomaly-detection):
+    >>> from oracle_fusion_mock.sales_orders import (
+    ...     OracleFusionClient,  # Alias for SalesOrderMockClient
+    ...     OracleOperations,    # Alias for SalesOrderMockOperations
     ...     Order,
     ...     OrderLine,
     ...     Customer,
     ...     Product,
     ... )
     >>>
-    >>> # Use as drop-in replacement for OracleFusionClient
-    >>> async with SalesOrderMockClient() as client:
+    >>> async with OracleFusionClient() as client:
     ...     orders = await client.get_orders()
     ...     order = await client.get_order("100100574829001")
     >>>
-    >>> # Or use high-level operations
-    >>> async with SalesOrderMockOperations() as ops:
+    >>> async with OracleOperations() as ops:
     ...     orders = await ops.get_recent_orders(days=7)
     ...     history = await ops.get_customer_order_history("CUST-1001")
 """
 
-from oracle_fusion_mock.sales_orders.client import SalesOrderMockClient
+from oracle_fusion_mock.sales_orders.client import (
+    SalesOrderMockClient,
+    SalesOrderMockError,
+    SalesOrderMockAuthError,
+    SalesOrderMockNotFoundError,
+)
 from oracle_fusion_mock.sales_orders.models import (
     Customer,
     CustomerOrderHistory,
@@ -38,10 +47,26 @@ from oracle_fusion_mock.sales_orders.models import (
 )
 from oracle_fusion_mock.sales_orders.operations import SalesOrderMockOperations
 
+# Aliases for compatibility with client-valence-anomaly-detection
+OracleFusionClient = SalesOrderMockClient
+OracleOperations = SalesOrderMockOperations
+OracleFusionError = SalesOrderMockError
+OracleFusionAuthError = SalesOrderMockAuthError
+OracleFusionNotFoundError = SalesOrderMockNotFoundError
+
 __all__ = [
-    # Client
+    # Client (original names)
     "SalesOrderMockClient",
     "SalesOrderMockOperations",
+    "SalesOrderMockError",
+    "SalesOrderMockAuthError",
+    "SalesOrderMockNotFoundError",
+    # Client (compatible aliases - same names as anomaly-detection)
+    "OracleFusionClient",
+    "OracleOperations",
+    "OracleFusionError",
+    "OracleFusionAuthError",
+    "OracleFusionNotFoundError",
     # Models (same names as anomaly-detection expects)
     "Order",
     "OrderLine",
