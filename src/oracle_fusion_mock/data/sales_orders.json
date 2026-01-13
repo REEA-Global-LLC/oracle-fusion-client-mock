@@ -1,0 +1,337 @@
+{
+  "salesOrders": [
+    {
+      "HeaderId": "100100574829001",
+      "OrderNumber": "SO-2025-0001",
+      "OrderTypeCode": "Standard",
+      "StatusCode": "Booked",
+      "CustomerId": "CUST-1001",
+      "CustomerName": "Acme Corporation",
+      "CustomerNumber": "ACME-001",
+      "BillToSiteId": "SITE-1001",
+      "ShipToSiteId": "SITE-1002",
+      "TotalAmount": 15750.00,
+      "CurrencyCode": "USD",
+      "OrderedDate": "2025-12-01T10:30:00Z",
+      "RequestedShipDate": "2025-12-15T00:00:00Z",
+      "CreationDate": "2025-12-01T10:30:00Z",
+      "LastUpdateDate": "2025-12-10T14:22:00Z",
+      "SalespersonId": "SP-1001",
+      "SalespersonName": "John Smith",
+      "BusinessUnitName": "Vision Operations",
+      "lines": [
+        {
+          "OrderLineId": "100100574829002",
+          "LineNumber": 1,
+          "InventoryItemId": "ITEM-5001",
+          "ProductNumber": "WIDGET-A100",
+          "ProductDescription": "Premium Widget A100",
+          "OrderedQuantity": 500,
+          "OrderedUOMCode": "EA",
+          "UnitSellingPrice": 25.00,
+          "ExtendedAmount": 12500.00,
+          "StatusCode": "Awaiting Shipping"
+        },
+        {
+          "OrderLineId": "100100574829003",
+          "LineNumber": 2,
+          "InventoryItemId": "ITEM-5002",
+          "ProductNumber": "GADGET-B200",
+          "ProductDescription": "Standard Gadget B200",
+          "OrderedQuantity": 100,
+          "OrderedUOMCode": "EA",
+          "UnitSellingPrice": 32.50,
+          "ExtendedAmount": 3250.00,
+          "StatusCode": "Awaiting Shipping"
+        }
+      ]
+    },
+    {
+      "HeaderId": "100100574829010",
+      "OrderNumber": "SO-2025-0002",
+      "OrderTypeCode": "Standard",
+      "StatusCode": "Entered",
+      "CustomerId": "CUST-1002",
+      "CustomerName": "TechStart Inc",
+      "CustomerNumber": "TECH-002",
+      "BillToSiteId": "SITE-2001",
+      "ShipToSiteId": "SITE-2002",
+      "TotalAmount": 45000.00,
+      "CurrencyCode": "USD",
+      "OrderedDate": "2025-12-05T09:15:00Z",
+      "RequestedShipDate": "2025-12-20T00:00:00Z",
+      "CreationDate": "2025-12-05T09:15:00Z",
+      "LastUpdateDate": "2025-12-05T09:15:00Z",
+      "SalespersonId": "SP-1002",
+      "SalespersonName": "Jane Doe",
+      "BusinessUnitName": "Vision Operations",
+      "lines": [
+        {
+          "OrderLineId": "100100574829011",
+          "LineNumber": 1,
+          "InventoryItemId": "ITEM-6001",
+          "ProductNumber": "SERVER-X500",
+          "ProductDescription": "Enterprise Server X500",
+          "OrderedQuantity": 10,
+          "OrderedUOMCode": "EA",
+          "UnitSellingPrice": 3500.00,
+          "ExtendedAmount": 35000.00,
+          "StatusCode": "Entered"
+        },
+        {
+          "OrderLineId": "100100574829012",
+          "LineNumber": 2,
+          "InventoryItemId": "ITEM-6002",
+          "ProductNumber": "RACK-R100",
+          "ProductDescription": "Server Rack R100",
+          "OrderedQuantity": 5,
+          "OrderedUOMCode": "EA",
+          "UnitSellingPrice": 2000.00,
+          "ExtendedAmount": 10000.00,
+          "StatusCode": "Entered"
+        }
+      ]
+    },
+    {
+      "HeaderId": "100100574829020",
+      "OrderNumber": "SO-2025-0003",
+      "OrderTypeCode": "Rush",
+      "StatusCode": "Booked",
+      "CustomerId": "CUST-1001",
+      "CustomerName": "Acme Corporation",
+      "CustomerNumber": "ACME-001",
+      "BillToSiteId": "SITE-1001",
+      "ShipToSiteId": "SITE-1003",
+      "TotalAmount": 8500.00,
+      "CurrencyCode": "USD",
+      "OrderedDate": "2025-12-10T11:00:00Z",
+      "RequestedShipDate": "2025-12-12T00:00:00Z",
+      "CreationDate": "2025-12-10T11:00:00Z",
+      "LastUpdateDate": "2025-12-10T15:30:00Z",
+      "SalespersonId": "SP-1001",
+      "SalespersonName": "John Smith",
+      "BusinessUnitName": "Vision Operations",
+      "lines": [
+        {
+          "OrderLineId": "100100574829021",
+          "LineNumber": 1,
+          "InventoryItemId": "ITEM-5003",
+          "ProductNumber": "MOTOR-M500",
+          "ProductDescription": "Industrial Motor M500",
+          "OrderedQuantity": 5,
+          "OrderedUOMCode": "EA",
+          "UnitSellingPrice": 1200.00,
+          "ExtendedAmount": 6000.00,
+          "StatusCode": "Awaiting Shipping"
+        },
+        {
+          "OrderLineId": "100100574829022",
+          "LineNumber": 2,
+          "InventoryItemId": "ITEM-5004",
+          "ProductNumber": "BEARING-SET",
+          "ProductDescription": "Industrial Bearing Set",
+          "OrderedQuantity": 50,
+          "OrderedUOMCode": "SET",
+          "UnitSellingPrice": 50.00,
+          "ExtendedAmount": 2500.00,
+          "StatusCode": "Awaiting Shipping"
+        }
+      ]
+    },
+    {
+      "HeaderId": "100100574829030",
+      "OrderNumber": "SO-2025-0004",
+      "OrderTypeCode": "Standard",
+      "StatusCode": "Closed",
+      "CustomerId": "CUST-1003",
+      "CustomerName": "Global Manufacturing Co",
+      "CustomerNumber": "GLOB-003",
+      "BillToSiteId": "SITE-3001",
+      "ShipToSiteId": "SITE-3001",
+      "TotalAmount": 3200.00,
+      "CurrencyCode": "USD",
+      "OrderedDate": "2025-11-01T08:00:00Z",
+      "RequestedShipDate": "2025-11-15T00:00:00Z",
+      "CreationDate": "2025-11-01T08:00:00Z",
+      "LastUpdateDate": "2025-11-20T16:00:00Z",
+      "SalespersonId": "SP-1002",
+      "SalespersonName": "Jane Doe",
+      "BusinessUnitName": "Vision Operations",
+      "lines": [
+        {
+          "OrderLineId": "100100574829031",
+          "LineNumber": 1,
+          "InventoryItemId": "ITEM-5001",
+          "ProductNumber": "WIDGET-A100",
+          "ProductDescription": "Premium Widget A100",
+          "OrderedQuantity": 128,
+          "OrderedUOMCode": "EA",
+          "UnitSellingPrice": 25.00,
+          "ExtendedAmount": 3200.00,
+          "StatusCode": "Closed"
+        }
+      ]
+    },
+    {
+      "HeaderId": "100100574829040",
+      "OrderNumber": "SO-2025-0005",
+      "OrderTypeCode": "Standard",
+      "StatusCode": "Booked",
+      "CustomerId": "CUST-1002",
+      "CustomerName": "TechStart Inc",
+      "CustomerNumber": "TECH-002",
+      "BillToSiteId": "SITE-2001",
+      "ShipToSiteId": "SITE-2001",
+      "TotalAmount": 125000.00,
+      "CurrencyCode": "USD",
+      "OrderedDate": "2025-12-12T14:00:00Z",
+      "RequestedShipDate": "2025-12-30T00:00:00Z",
+      "CreationDate": "2025-12-12T14:00:00Z",
+      "LastUpdateDate": "2025-12-12T14:00:00Z",
+      "SalespersonId": "SP-1002",
+      "SalespersonName": "Jane Doe",
+      "BusinessUnitName": "Vision Operations",
+      "lines": [
+        {
+          "OrderLineId": "100100574829041",
+          "LineNumber": 1,
+          "InventoryItemId": "ITEM-6001",
+          "ProductNumber": "SERVER-X500",
+          "ProductDescription": "Enterprise Server X500",
+          "OrderedQuantity": 25,
+          "OrderedUOMCode": "EA",
+          "UnitSellingPrice": 3500.00,
+          "ExtendedAmount": 87500.00,
+          "StatusCode": "Awaiting Shipping"
+        },
+        {
+          "OrderLineId": "100100574829042",
+          "LineNumber": 2,
+          "InventoryItemId": "ITEM-6003",
+          "ProductNumber": "SWITCH-S200",
+          "ProductDescription": "Network Switch S200",
+          "OrderedQuantity": 50,
+          "OrderedUOMCode": "EA",
+          "UnitSellingPrice": 750.00,
+          "ExtendedAmount": 37500.00,
+          "StatusCode": "Awaiting Shipping"
+        }
+      ]
+    },
+    {
+      "HeaderId": "100100574829050",
+      "OrderNumber": "SO-2026-0006",
+      "OrderTypeCode": "Standard",
+      "StatusCode": "Pending Approval",
+      "CustomerId": "CUST-1004",
+      "CustomerName": "Small Business LLC",
+      "CustomerNumber": "SMALL-004",
+      "BillToSiteId": "SITE-4001",
+      "ShipToSiteId": "SITE-4001",
+      "TotalAmount": 750.00,
+      "CurrencyCode": "USD",
+      "OrderedDate": "2026-01-10T10:00:00Z",
+      "RequestedShipDate": "2026-01-20T00:00:00Z",
+      "CreationDate": "2026-01-10T10:00:00Z",
+      "LastUpdateDate": "2026-01-10T10:00:00Z",
+      "SalespersonId": "SP-1003",
+      "SalespersonName": "Mike Wilson",
+      "BusinessUnitName": "Vision Operations",
+      "lines": [
+        {
+          "OrderLineId": "100100574829051",
+          "LineNumber": 1,
+          "InventoryItemId": "ITEM-5001",
+          "ProductNumber": "WIDGET-A100",
+          "ProductDescription": "Premium Widget A100",
+          "OrderedQuantity": 30,
+          "OrderedUOMCode": "EA",
+          "UnitSellingPrice": 25.00,
+          "ExtendedAmount": 750.00,
+          "StatusCode": "Pending Approval"
+        }
+      ]
+    }
+  ],
+  "customers": [
+    {
+      "CustomerId": "CUST-1001",
+      "CustomerNumber": "ACME-001",
+      "CustomerName": "Acme Corporation",
+      "AccountNumber": "ACC-10001",
+      "BillToSiteId": "SITE-1001"
+    },
+    {
+      "CustomerId": "CUST-1002",
+      "CustomerNumber": "TECH-002",
+      "CustomerName": "TechStart Inc",
+      "AccountNumber": "ACC-10002",
+      "BillToSiteId": "SITE-2001"
+    },
+    {
+      "CustomerId": "CUST-1003",
+      "CustomerNumber": "GLOB-003",
+      "CustomerName": "Global Manufacturing Co",
+      "AccountNumber": "ACC-10003",
+      "BillToSiteId": "SITE-3001"
+    },
+    {
+      "CustomerId": "CUST-1004",
+      "CustomerNumber": "SMALL-004",
+      "CustomerName": "Small Business LLC",
+      "AccountNumber": "ACC-10004",
+      "BillToSiteId": "SITE-4001"
+    }
+  ],
+  "products": [
+    {
+      "InventoryItemId": "ITEM-5001",
+      "ProductNumber": "WIDGET-A100",
+      "ProductDescription": "Premium Widget A100",
+      "UOMCode": "EA",
+      "UnitSellingPrice": 25.00
+    },
+    {
+      "InventoryItemId": "ITEM-5002",
+      "ProductNumber": "GADGET-B200",
+      "ProductDescription": "Standard Gadget B200",
+      "UOMCode": "EA",
+      "UnitSellingPrice": 32.50
+    },
+    {
+      "InventoryItemId": "ITEM-5003",
+      "ProductNumber": "MOTOR-M500",
+      "ProductDescription": "Industrial Motor M500",
+      "UOMCode": "EA",
+      "UnitSellingPrice": 1200.00
+    },
+    {
+      "InventoryItemId": "ITEM-5004",
+      "ProductNumber": "BEARING-SET",
+      "ProductDescription": "Industrial Bearing Set",
+      "UOMCode": "SET",
+      "UnitSellingPrice": 50.00
+    },
+    {
+      "InventoryItemId": "ITEM-6001",
+      "ProductNumber": "SERVER-X500",
+      "ProductDescription": "Enterprise Server X500",
+      "UOMCode": "EA",
+      "UnitSellingPrice": 3500.00
+    },
+    {
+      "InventoryItemId": "ITEM-6002",
+      "ProductNumber": "RACK-R100",
+      "ProductDescription": "Server Rack R100",
+      "UOMCode": "EA",
+      "UnitSellingPrice": 2000.00
+    },
+    {
+      "InventoryItemId": "ITEM-6003",
+      "ProductNumber": "SWITCH-S200",
+      "ProductDescription": "Network Switch S200",
+      "UOMCode": "EA",
+      "UnitSellingPrice": 750.00
+    }
+  ]
+}
